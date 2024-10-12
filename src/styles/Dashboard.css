@@ -1,0 +1,132 @@
+/* General Container Style */
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #e9ecef, #cfd8dc); 
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #34495e; 
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.sidebar-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Navigation List */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-list li {
+    margin: 15px 0;
+    max-width: 200px;
+    text-align: center;
+}
+
+.nav-list a {
+    color: #1abc9c; 
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;
+    padding: 10px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+}
+
+.nav-list a:hover {
+    background-color: rgba(26, 188, 156, 0.2); 
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Title */
+.dashboard-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #2c3e50; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Table Styles */
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+/* Table Header */
+.transaction-table th,
+.transaction-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #e0e0e0; 
+}
+
+.transaction-table th {
+    background-color: #1abc9c; 
+    color: white; 
+    font-weight: bold;
+}
+
+/* Row Styles */
+.success {
+    background-color: #d4edda;
+}
+
+.pending {
+    background-color: #fff3cd; 
+}
+
+.failed {
+    background-color: #f8d7da; 
+}
+
+/* Status Colors */
+.status-success {
+    color: #28a745; 
+}
+
+.status-failed {
+    color: #dc3545; 
+}
+
+.status-pending {
+    color: #ffc107; 
+}
+
+/* Delete Button */
+.delete-trans {
+    padding: 5px 10px;
+    background-color: #e74c3c; 
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-trans:hover {
+    background-color: #c0392b; 
+}
