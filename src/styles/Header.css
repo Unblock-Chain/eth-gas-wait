@@ -1,19 +1,29 @@
-header {
-    background-color: #f8f9fa;
-    padding: 10px;
+.header-container {
+    display: flex;
+    justify-content: space-between; /* 水平分隔导航和钱包组件 */
+    align-items: center; /* 垂直居中对齐 */
+    padding: 10px 20px; /* 上下和左右的内边距 */
+    background-color: #f8f9fa; /* 可自定义背景颜色 */
 }
 
-nav ul {
-    list-style-type: none;
+.nav-list {
+    list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row; /* 水平布局 */
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 15px;
+.nav-list li {
+    margin: 0 15px; /* 左右边距 */
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #007bff;
+.nav-list a {
+    text-decoration: none; /* 去掉下划线 */
+    color: #333; /* 链接颜色 */
+}
+
+/* 如果需要钱包组件的样式 */
+.wallet-container {
+    margin-left: auto; /* 将钱包组件推到右侧 */
 }

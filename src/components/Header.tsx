@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import '../styles/Header.css'; 
+import Wallet from './Wallet';
 
 const Header: React.FC = () => {
     return (
-        <header>
+        <header className="header-container">
             <nav>
-                <ul>
+                <ul className="nav-list">
                     <li>
                         <Link to="/dashboard">Dashboard</Link>
                     </li>
@@ -16,6 +17,9 @@ const Header: React.FC = () => {
                     </li> */}
                 </ul>
             </nav>
+            <div className="wallet-container">
+                <Wallet />
+            </div>
         </header>
     );
 };
