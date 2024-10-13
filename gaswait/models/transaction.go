@@ -9,6 +9,8 @@ import (
 )
 
 // Transaction represents an EVM-compatible transaction
+// TODO:
+// GasPrice, GasLimit, Value big.Int
 type Transaction struct {
 	gorm.Model // Gorm provides fields like ID, CreatedAt, UpdatedAt, DeletedAt
 
