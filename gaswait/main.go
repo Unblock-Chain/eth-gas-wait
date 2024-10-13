@@ -4,7 +4,7 @@ import (
 	_ "gaswait/config"
 	"gaswait/middlewares"
 
-	// "gaswait/routes"
+	"gaswait/routes"
 
 	"github.com/gin-gonic/gin"
 )
@@ -12,6 +12,6 @@ import (
 func main() {
 	r := gin.Default()
 	r.Use(middlewares.Cors())
-	// routes.SetupRoutes(r)
+	routes.Setup(r)
 	r.Run(":8080")
 }
