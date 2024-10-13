@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { faker } from '@faker-js/faker';
 
 import "../../styles/transaction.css";
+// import { useQuery, useMutation } from '@tanstack/react-query';
+// import { getTransactions } from '../../services/transaction';
 
 interface Trans {
     hash: string;
@@ -43,6 +45,7 @@ console.log(mockTransactions);
 
 const Transaction = () => {
     const [transactions, setTransactions] = useState<Trans[]>([]);
+    // const { data: transactions, isLoading, error } = useQuery(['transactions'], getTransactions);
 
     useEffect(() => {
         // const mockTransactions = generateMockTransactions(10); // 生成10条Mock数据
