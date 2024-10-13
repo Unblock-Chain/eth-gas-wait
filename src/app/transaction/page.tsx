@@ -8,6 +8,7 @@ interface Trans {
     hash: string;
     from: string;
     to: string;
+    time: string,
     value: string;
     status: string;
 }
@@ -30,6 +31,7 @@ const generateMockTransaction = () => {
         hash: generateTransactionHash(),
         from: faker.finance.ethereumAddress(),
         to: faker.finance.ethereumAddress(),
+        time: faker.date.past().toISOString(),
         value: `${(Math.random() * 10).toFixed(2)} ETH`, // 随机生成 ETH 数量
         status: Math.random() > 0.5 ? 'success' : 'failed' // 随机生成状态
     };
@@ -68,6 +70,7 @@ const Transaction = () => {
                             <th>Transaction Hash</th>
                             {/* <th>From</th> */}
                             <th>To</th>
+                            <th>Time</th>
                             <th>Value</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -127,6 +130,7 @@ const TransactionRow: React.FC<TransactionRowProps> = ({ transaction, onDelete }
                 </td>
                 {/* <td>{transaction.from}</td> */}
                 <td>{transaction.to}</td>
+                <td>{transaction.time}</td>
                 <td>{transaction.value}</td>
                 <td>
                     <div className={`transaction-status ${statusClass}`}>
