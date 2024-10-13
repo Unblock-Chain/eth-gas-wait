@@ -1,0 +1,27 @@
+.header-container {
+    display: flex; /* 使用 flexbox */
+    justify-content: space-between; /* 在主轴上分配空间 */
+    align-items: center; /* 在交叉轴上居中对齐 */
+    padding: 10px 20px; /* 添加内边距 */
+    background-color: #f5f5f5; /* 背景颜色 */
+    border-bottom: 1px solid #ddd; /* 底部边框 */
+}
+
+.links-container {
+    display: flex; /* 使用 flexbox 进行排列 */
+    gap: 20px; /* 链接之间的间距 */
+}
+
+.header-container a {
+    text-decoration: none; /* 移除下划线 */
+    color: #333; /* 字体颜色 */
+    font-weight: bold; /* 加粗字体 */
+}
+
+.header-container a:hover {
+    color: #0070f3; /* 鼠标悬停时的颜色 */
+}
+
+.wallet-container {
+    margin-left: auto; /* 将钱包容器推到右边 */
+}

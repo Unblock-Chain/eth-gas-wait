@@ -1,9 +1,10 @@
+'use client';
 import React, { useState, useEffect } from 'react';
 import { faker } from '@faker-js/faker';
 
-import '../styles/Dashboard.css';
+import "../../styles/transaction.css";
 
-interface Transaction {
+interface Trans {
     hash: string;
     from: string;
     to: string;
@@ -38,8 +39,8 @@ const generateMockTransaction = () => {
 const mockTransactions = Array.from({ length: 5 }, generateMockTransaction);
 console.log(mockTransactions);
 
-const Dashboard: React.FC = () => {
-    const [transactions, setTransactions] = useState<Transaction[]>([]);
+const Transaction = () => {
+    const [transactions, setTransactions] = useState<Trans[]>([]);
 
     useEffect(() => {
         // const mockTransactions = generateMockTransactions(10); // 生成10条Mock数据
@@ -50,7 +51,7 @@ const Dashboard: React.FC = () => {
         setTransactions(transactions.filter(tx => tx.hash !== hash));
     };
     return (
-        <div className="dashboard-container">
+        <div className="transaction-container">
             <nav className="sidebar">
                 <h2 className="sidebar-title">Navigation</h2>
                 <ul className="nav-list">
@@ -59,8 +60,8 @@ const Dashboard: React.FC = () => {
                     <li><a href="#settings">Settings</a></li>
                 </ul>
             </nav>
-            <div className="main-content">
-                <h1 className="dashboard-title">Transaction Dashboard</h1>
+            <div className="transaction-content">
+                <h1 className="transaction-title">Transaction Dashboard</h1>
                 <table className="transaction-table">
                     <thead>
                         <tr>
@@ -152,4 +153,4 @@ const TransactionRow: React.FC<TransactionRowProps> = ({ transaction, onDelete }
     );
 };
 
-export default Dashboard;
+export default Transaction;

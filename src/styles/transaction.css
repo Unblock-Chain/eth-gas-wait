@@ -1,8 +1,6 @@
-/* General Container Style */
-.dashboard-container {
+.transaction-container {
     display: flex;
     width: 100%;
-    height: 100vh;
     background: linear-gradient(135deg, #e9ecef, #cfd8dc); 
 }
 
@@ -52,14 +50,12 @@
     background-color: rgba(26, 188, 156, 0.2); 
 }
 
-/* Main Content Styles */
-.main-content {
-    flex: 1;
+.transaction-content {
     padding: 20px;
-}
+} 
 
 /* Title */
-.dashboard-title {
+.transaction-title {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 20px;
@@ -67,7 +63,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Table Styles */
 .transaction-table {
     width: 100%;
     border-collapse: collapse;
@@ -116,7 +111,6 @@
     color: #ffc107; 
 }
 
-/* Delete Button */
 .delete-trans {
     padding: 5px 10px;
     background-color: #e74c3c; 

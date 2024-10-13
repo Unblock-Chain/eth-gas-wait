@@ -1,3 +1,7 @@
+'use client';
+
+import React from 'react';
+
 import { client } from "../client";
 import { ConnectButton } from "thirdweb/react";
 import { createWallet } from "thirdweb/wallets";

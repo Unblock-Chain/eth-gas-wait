@@ -1,36 +1,71 @@
-# dependencies
+# Node.js
 node_modules/
-.pnp
-.pnp.js
+npm-debug.log
+yarn-error.log
+yarn-debug.log
 
-# production
+# Build output
+.next/
+out/
+dist/
 build/
 
-# misc
-.DS_Store
-.env
+# Static files
+public/static/
+
+# Local environment files
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Editor directories and files
+# IDE/Editor files
 .vscode/
 .idea/
+*.sublime-workspace
+
+# Logs
+logs
+*.log
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Dependency directories
+jspm_packages/
 
 # Optional npm cache directory
-.npm
+.npm/
 
-# Optional eslint cache
-.eslintcache
+# MacOS files
+.DS_Store
 
-# Optional babel cache
-.babel.json
-.babelrc
-.babelrc.js
-.babelrc.json
+# Windows files
+Thumbs.db
+ehthumbs.db
+
+# Go specific
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Build directories
+bin/
+obj/
+
+# Vendor directory
+vendor/
+
+# Test coverage files
+*.out
+
+# Local environment files for Go
+.env
+
+# IDE/Editor files for Go
+*.swp
+*.swo
 
