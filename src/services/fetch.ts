@@ -11,3 +11,9 @@ export const fetchPost = async (url: string, postData: any) => {
 };
 
 
+export const fetchDel = async (url: string) => {
+  const response = await ApiInstance.delete(url);
+  return response.data; 
+};
+
+
