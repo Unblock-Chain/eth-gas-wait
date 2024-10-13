@@ -74,7 +74,7 @@ interface TransactionRowProps {
 
 
 const TransactionRow: React.FC<TransactionRowProps> = ({ transaction, onDelete }) => {
-    const [isExpanded, setIsExpanded] = useState(false); // 状态控制详情行的展开与收起
+    const [isExpanded, setIsExpanded] = useState(false); 
 
     const toggleDetails = () => {
         setIsExpanded(!isExpanded);
