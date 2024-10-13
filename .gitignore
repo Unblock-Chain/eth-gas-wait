@@ -16,8 +16,10 @@ public/static/
 # Local environment files
 .env.local
 .env.development.local
+.env.dev.local
 .env.test.local
 .env.production.local
+.env.prod.local
 
 # IDE/Editor files
 .vscode/
