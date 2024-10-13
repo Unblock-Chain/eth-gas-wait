@@ -8,4 +8,5 @@ import (
 
 func Setup(r *gin.Engine) {
 	r.POST("/transaction", controllers.CreateTransaction)
+	r.GET("/transactions", controllers.QueryTransaction)
 }

@@ -2,6 +2,7 @@ package models
 
 import (
 	"math/big"
+	"strings"
 	"time"
 
 	"gorm.io/gorm"
@@ -11,11 +12,11 @@ import (
 type Transaction struct {
 	gorm.Model // Gorm provides fields like ID, CreatedAt, UpdatedAt, DeletedAt
 
-	TxHash      string     `gorm:"type:varchar(66);uniqueIndex"` // Transaction hash
+	TxHash      *string    `gorm:"type:varchar(66);uniqueIndex"` // Transaction hash
 	From        string     `gorm:"type:varchar(42);not null"`    // Sender address
 	To          string     `gorm:"type:varchar(42)"`             // Recipient address (could be null for contract creation)
-	Value       string     `gorm:"type:numeric;default:0"`       // Transaction value in wei (big integer as string)
-	GasPrice    string     `gorm:"type:numeric"`                 // Gas price in wei
+	Value       uint64     `gorm:"type:numeric;default:0"`       // Transaction value in wei (big integer as string)
+	GasPrice    uint64     `gorm:"type:numeric"`                 // Gas price in wei
 	GasLimit    uint64     `gorm:"not null"`                     // Gas limit provided by the sender
 	GasUsed     uint64     `gorm:"default:0"`                    // Actual gas used (after execution)
 	Nonce       uint64     `gorm:"not null"`                     // Nonce of the sender account
@@ -48,9 +49,17 @@ func GetTransactionByTxHash(txHash string) (*Transaction, error) {
 	return &tx, result.Error
 }
 
-func QuesyTransactions() ([]Transaction, error) {
+func QuesyTransactions(wheres Wheres) ([]Transaction, error) {
 	var transactions []Transaction
-	result := db.Find(&transactions)
+	query := db.Model(&Transaction{})
+	for k, v := range wheres {
+		if v := strings.ReplaceAll(v, " ", ""); v == "" {
+			continue
+		}
+		query = query.Where(k, v)
+	}
+
+	result := query.Find(&transactions)
 	return transactions, result.Error
 }
 
