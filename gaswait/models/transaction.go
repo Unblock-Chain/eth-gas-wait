@@ -17,12 +17,12 @@ type Transaction struct {
 	TxHash      *string    `json:"tx_hash" gorm:"type:varchar(66);uniqueIndex"` // Transaction hash
 	From        string     `json:"from" gorm:"type:varchar(42);not null"`       // Sender address
 	To          string     `json:"to" gorm:"type:varchar(42)"`                  // Recipient address (could be null for contract creation)
-	Value       uint64     `json:"value" gorm:"type:numeric;default:0"`         // Transaction value in wei (big integer as string)
-	GasPrice    uint64     `json:"gas_price" gorm:"type:numeric"`               // Gas price in wei
-	GasLimit    uint64     `json:"gas_limit" gorm:"not null"`                   // Gas limit provided by the sender
-	GasUsed     uint64     `json:"gas_used" gorm:"default:0"`                   // Actual gas used (after execution)
+	Value       string     `json:"value" gorm:"type:varchar(64)"`               // Transaction value in wei (big integer as string)
+	GasPrice    string     `json:"gas_price" gorm:"type:varchar(64)"`           // Gas price in wei
+	GasLimit    string     `json:"gas_limit" gorm:"type:varchar(64)"`           // Gas limit provided by the sender
+	GasUsed     string     `json:"gas_used" gorm:"type:varchar(64)"`            // Actual gas used (after execution)
 	Nonce       uint64     `json:"nonce" gorm:"not null"`                       // Nonce of the sender account
-	InputData   []byte     `json:"_" gorm:"type:bytea"`                         // Data sent with the transaction (for contract calls)
+	InputData   string     `json:"input_data" gorm:"type:text"`                 // Data sent with the transaction (for contract calls)
 	BlockHash   string     `json:"block_hash" gorm:"type:varchar(66)"`          // Hash of the block containing this transaction
 	BlockNumber uint64     `json:"block_number" gorm:"default:0"`               // Block number (inclusion block number)
 	Status      uint8      `json:"status" gorm:"default:0"`                     // Transaction status (1 for success, 0 for failure, 2 for pending)

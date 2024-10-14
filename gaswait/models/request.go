@@ -1,12 +1,54 @@
 package models
 
+import (
+	"gaswait/utils"
+	"math/big"
+)
+
 type ReqCreateTrans struct {
 	From     string `json:"from"`
 	To       string `json:"to"`
-	Value    uint64 `json:"value"`
+	Value    string `json:"value"`
 	CallData string `json:"call_data"`
-	GasPrice uint64 `json:"gas_price"`
-	GasLimit uint64 `json:"gas_limit"`
+	GasPrice string `json:"gas_price"`
+	GasLimit string `json:"gas_limit"`
+	SValue   *big.Int
+	SPrice   *big.Int
+	SLimit   *big.Int
+}
+
+func (r *ReqCreateTrans) GetValue() (*big.Int, error) {
+	var err error
+	r.SValue, err = utils.StringToBigInt(r.Value)
+	return r.SValue, err
+}
+
+func (r *ReqCreateTrans) GetGasPrice() (*big.Int, error) {
+	var err error
+	r.SPrice, err = utils.StringToBigInt(r.GasPrice)
+	return r.SPrice, err
+}
+
+func (r *ReqCreateTrans) GetGasLimit() (*big.Int, error) {
+	var err error
+	r.SLimit, err = utils.StringToBigInt(r.GasLimit)
+	return r.SLimit, err
+}
+
+// TODO: require
+func (r *ReqCreateTrans) Check() error {
+	if _, err := r.GetValue(); err != nil {
+		return err
+	}
+
+	if _, err := r.GetGasPrice(); err != nil {
+		return err
+	}
+
+	if _, err := r.GetGasLimit(); err != nil {
+		return err
+	}
+	return nil
 }
 
 type ReqQueryTransa struct {

@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"gaswait/models"
 	"strconv"
 
@@ -16,11 +15,17 @@ func CreateTransaction(c *gin.Context) {
 		return
 	}
 
+	if err := req.Check(); err != nil {
+		resp(c, 5001, "invalid args", "")
+		return
+	}
+
 	var tran models.Transaction
 	tran.From = req.From
 	tran.To = req.To
 	tran.Value = req.Value
-	tran.InputData = []byte(req.CallData)
+	// TODO: check call data
+	tran.InputData = req.CallData
 	tran.GasPrice = req.GasPrice
 	tran.GasLimit = req.GasLimit
 
@@ -43,7 +48,6 @@ func QueryTransaction(c *gin.Context) {
 	wheres["from"] = req.From
 	wheres["to"] = req.To
 	wheres["tx_hash"] = req.TxHash
-	fmt.Println(wheres)
 
 	transactions, err := models.QuesyTransactions(wheres)
 	if err != nil {
