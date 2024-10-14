@@ -2,6 +2,8 @@ package main
 
 import (
 	_ "gaswait/config"
+
+	_ "gaswait/chain"
 	"gaswait/middlewares"
 
 	"gaswait/routes"
