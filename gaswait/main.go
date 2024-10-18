@@ -3,7 +3,7 @@ package main
 import (
 	_ "gaswait/config"
 
-	_ "gaswait/chain"
+	_ "gaswait/chains"
 	"gaswait/middlewares"
 
 	"gaswait/routes"

@@ -13,7 +13,11 @@ func init() {
 	rpc := os.Getenv("RPC_URL")
 	// TODO: log
 
+	rpc = "https://linea-mainnet.infura.io/v3/"
+
 	var err error
 	client, err = ethclient.Dial(rpc)
-	log.Fatalln(err)
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
